@@ -4,11 +4,17 @@ import styles from './Bar.module.scss';
 
 type BarProps = {
   height: number;
-  monthName: string;
+  dateName: string;
 };
 
-const Bar: React.FC<BarProps> = ({ height, monthName }) => {
+const Bar: React.FC<BarProps> = ({ height, dateName }) => {
   const [activeBar, setActiveBar] = useState<number | null>(null);
+
+  let scaleStyle;
+
+  if (dateName && !Number.isNaN(+dateName) && +dateName > 1 && +dateName % 5 !== 0) {
+    scaleStyle = styles.invisible;
+  }
 
   const barHeight = calculateBarHeight(height);
 
@@ -32,7 +38,7 @@ const Bar: React.FC<BarProps> = ({ height, monthName }) => {
         <rect width="16" height={barHeight} rx="4" fill="#000AFF" />
         <animate attributeName="height" from="0" to={barHeight} dur="0.8s" begin="0s" />
       </svg>
-      <div className={styles.scale}>{monthName}</div>
+      <div className={scaleStyle}>{dateName}</div>
     </div>
   );
 };

@@ -13,7 +13,7 @@ const ChartBarField: React.FC<ChartBarProps> = ({ periodName }) => {
       <EarningScale />
       <div className={styles.chart}>
         {Object.entries(periodName).map(([period, value]) => (
-          <Bar key={period} height={value} monthName={period} />
+          <Bar key={period} height={value} dateName={period} />
         ))}
       </div>
     </div>
