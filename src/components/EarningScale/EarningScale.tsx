@@ -2,12 +2,12 @@ import React from 'react';
 import styles from './EarningScale.module.scss';
 
 const EarningScale = () => {
+  const scale = [0, 500, 1000, 2000, 5000, 10000];
   return (
     <div className={styles.scale}>
-      <div>100</div>
-      <div>100</div>
-      <div>100</div>
-      <div>100</div>
+      {scale.map((value: number) => (
+        <div key={value}>{value}</div>
+      ))}
     </div>
   );
 };

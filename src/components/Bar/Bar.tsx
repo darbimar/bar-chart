@@ -1,22 +1,26 @@
 import React from 'react';
+import { calculateBarHeight } from '@/utils/calcBarHeight';
 import styles from './Bar.module.scss';
 
 type BarProps = {
   height: number;
+  monthName: string;
 };
 
-const Bar: React.FC<BarProps> = ({ height }) => {
+const Bar: React.FC<BarProps> = ({ height, monthName }) => {
+  const barHeight = calculateBarHeight(height);
+
   return (
     <div className={styles.bar}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="16"
-        height={height}
-        viewBox={`0 0 16 ${height}`}
+        height={barHeight}
+        viewBox={`0 0 16 ${barHeight}`}
         fill="none">
-        <rect width="16" height={height} rx="4" fill="#000AFF" />
+        <rect width="16" height={barHeight} rx="4" fill="#000AFF" />
       </svg>
-      <div className={styles.scale}>100</div>
+      <div className={styles.scale}>{monthName}</div>
     </div>
   );
 };
