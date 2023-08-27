@@ -19,6 +19,7 @@ const Bar: React.FC<BarProps> = ({ height, monthName }) => {
         viewBox={`0 0 16 ${barHeight}`}
         fill="none">
         <rect width="16" height={barHeight} rx="4" fill="#000AFF" />
+        <animate attributeName="height" from="0" to={barHeight} dur="0.8s" begin="0s" />
       </svg>
       <div className={styles.scale}>{monthName}</div>
     </div>
