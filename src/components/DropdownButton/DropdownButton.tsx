@@ -33,7 +33,12 @@ const DropdownButton: React.FC<DropdownProps> = ({
           height="17"
           viewBox="0 0 28 17"
           fill="none">
-          <path d="M26 2L14 14L2 2" stroke="#000AFF" strokeWidth="3" strokeLinecap="round" />
+          <path
+            d={isOpen ? 'M26 15L14 3L2 15' : 'M26 2L14 14L2 2'}
+            stroke="#000AFF"
+            strokeWidth="3"
+            strokeLinecap="round"
+          />
         </svg>
       </button>
       {isOpen && (

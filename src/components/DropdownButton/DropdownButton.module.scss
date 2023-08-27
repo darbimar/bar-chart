@@ -15,7 +15,7 @@
 
   svg {
     position: absolute;
-    top: 17px;
+    top: 15px;
     right: 16px;
   }
 }
@@ -23,6 +23,7 @@
 .list {
   padding: 20px 21px;
   position: absolute;
+  z-index: 1;
   top: 46px;
   width: 380px;
   height: 116px;
