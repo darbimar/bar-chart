@@ -1,18 +1,26 @@
 'use client';
-import React, { useState } from 'react';
+import React, { Dispatch, SetStateAction, useState } from 'react';
 import styles from './DropdownButton.module.scss';
 
-const DropdownButton: React.FC = () => {
-  const options = ['За последний месяц', 'За последние 6 месяцев', 'За последний год'];
+type DropdownProps = {
+  selectedOption: string;
+  setSelectedOption: Dispatch<SetStateAction<string>>;
+  options: string[];
+  onChange: () => void;
+};
 
+const DropdownButton: React.FC<DropdownProps> = ({
+  onChange,
+  options,
+  selectedOption,
+  setSelectedOption,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(options[0]);
 
-  const filteredOptions = options.filter((option) => option !== selectedOption);
-
-  const handleOptionClick = (option: any) => {
+  const handleOptionClick = (option: string) => {
     setSelectedOption(option);
     setIsOpen(false);
+    onChange();
   };
 
   return (
@@ -30,11 +38,13 @@ const DropdownButton: React.FC = () => {
       </button>
       {isOpen && (
         <ul className={styles.list}>
-          {filteredOptions.map((option) => (
-            <li className={styles.item} key={option} onClick={() => handleOptionClick(option)}>
-              {option}
-            </li>
-          ))}
+          {options
+            .filter((option) => option !== selectedOption)
+            .map((option) => (
+              <li className={styles.item} key={option} onClick={() => handleOptionClick(option)}>
+                {option}
+              </li>
+            ))}
         </ul>
       )}
     </div>

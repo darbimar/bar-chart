@@ -1,17 +1,18 @@
-import { periods } from '@/data';
 import Bar from '../Bar/Bar';
 import EarningScale from '../EarningScale/EarningScale';
 import styles from './ChartBarField.module.scss';
+import { Period } from '@/app/page';
 
-const ChartBarField = () => {
-  const { graph } = periods;
-  const { year, half_year, month } = graph;
+type ChartBarProps = {
+  periodName: Period;
+};
 
+const ChartBarField: React.FC<ChartBarProps> = ({ periodName }) => {
   return (
     <div className={styles.wrapper}>
       <EarningScale />
       <div className={styles.chart}>
-        {Object.entries(month).map(([period, value]) => (
+        {Object.entries(periodName).map(([period, value]) => (
           <Bar key={period} height={value} monthName={period} />
         ))}
       </div>
