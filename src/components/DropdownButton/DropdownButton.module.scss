@@ -1,14 +1,43 @@
+.dropdown {
+  position: relative;
+}
+
 .button {
   position: relative;
-  padding: 9px 116px 9px 20px;
+  padding: 9px 79px 9px 20px;
+  width: 380px;
   height: 48px;
   border-radius: 28px;
   border: 2px solid #000AFF;
   background-color: #FFF;
+  font-size: 24px;
+  text-align: start;
 
   svg {
     position: absolute;
     top: 17px;
     right: 16px;
   }
+}
+
+.list {
+  padding: 20px 21px;
+  position: absolute;
+  top: 46px;
+  width: 380px;
+  height: 116px;
+  border-radius: 28px;
+  border: 2px solid #000AFF;
+  background: #FFF;
+}
+
+.item {
+  margin-bottom: 16px;
+  font-size: 24px;
+  list-style-type: none;
+}
+
+.item:last-child {
+  margin-bottom: 0;
+
 }
