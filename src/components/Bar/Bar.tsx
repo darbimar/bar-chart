@@ -10,7 +10,7 @@ type BarProps = {
 const Bar: React.FC<BarProps> = ({ height, dateName }) => {
   const [activeBar, setActiveBar] = useState<number | null>(null);
 
-  let scaleStyle;
+  let scaleStyle: string = '';
 
   if (dateName && !Number.isNaN(+dateName) && +dateName > 1 && +dateName % 5 !== 0) {
     scaleStyle = styles.invisible;

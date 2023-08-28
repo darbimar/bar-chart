@@ -6,11 +6,9 @@ type DropdownProps = {
   selectedOption: string;
   setSelectedOption: Dispatch<SetStateAction<string>>;
   options: string[];
-  onChange: () => void;
 };
 
 const DropdownButton: React.FC<DropdownProps> = ({
-  onChange,
   options,
   selectedOption,
   setSelectedOption,
@@ -20,7 +18,6 @@ const DropdownButton: React.FC<DropdownProps> = ({
   const handleOptionClick = (option: string) => {
     setSelectedOption(option);
     setIsOpen(false);
-    onChange();
   };
 
   return (

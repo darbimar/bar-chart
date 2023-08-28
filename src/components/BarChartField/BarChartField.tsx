@@ -1,13 +1,13 @@
 import Bar from '../Bar/Bar';
+import { Period } from '../BarChart/BarChart';
 import EarningScale from '../EarningScale/EarningScale';
-import styles from './ChartBarField.module.scss';
-import { Period } from '@/app/page';
+import styles from './BarChartField.module.scss';
 
-type ChartBarProps = {
+type BarChartProps = {
   periodName: Period;
 };
 
-const ChartBarField: React.FC<ChartBarProps> = ({ periodName }) => {
+const BarChartField: React.FC<BarChartProps> = ({ periodName }) => {
   return (
     <div className={styles.wrapper}>
       <EarningScale />
@@ -20,4 +20,4 @@ const ChartBarField: React.FC<ChartBarProps> = ({ periodName }) => {
   );
 };
 
-export default ChartBarField;
+export default BarChartField;
